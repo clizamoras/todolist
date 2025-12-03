@@ -1,0 +1,49 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+{% if request.user.is_authenticated %}
+
+<!-- MAIN WRAPPER WITH BACKGROUND -->
+<div class="todo-page">
+
+    <!-- HEADER BAR -->
+    <div class="header-bar">
+        <div class="header-left">
+            <h1>{{ request.user|title }}</h1>
+            <h3 style="margin:0">You have <i>{{count}}</i> incomplete task{{count|pluralize:"s"}}</h3>
+        </div>
+
+        <a class="logout-btn" href="{% url 'logout' %}">Log Out</a>
+    </div>
+<div class="create"><a href="{% url 'task-create' %}">&#x2b;</a></div>
+    <!-- TASK CONTAINER -->
+    <div class="tasks-container">
+
+        {% for task in tasks %}
+
+        <div class="task-row">
+
+            <div class="task-left">
+                <span class="bullet {% if task.complete %}done{% else %}not-done{% endif %}"></span>
+
+                <a href="{% url 'taskupdate' task.id %}"
+                class="task-text {% if task.complete %}completed{% endif %}">
+                    {{ task.title }}
+                </a>
+            </div>
+
+            <a class="delete" href="{% url 'taskdelete' task.pk %}">&#215;</a>
+        </div>
+
+        {% empty %}
+            <p class="no-items">No items in the list</p>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+
+{% endif %}
+
+{% endblock content %}
