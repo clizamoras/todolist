@@ -1,0 +1,128 @@
+{% extends 'base/main.html'%}
+{% block content %}
+
+<!-- <h1>Login</h1>
+<form method="POST" action="" >
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type="submit" value="Login">
+
+    <p>Dont have an account ? <a href="{% url 'register' %}">Resgister</a></p>
+</form> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffb6c1, #ff9bb7, #ff7aa7);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            width: 350px;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 25px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .input-box {
+            text-align: left;
+            margin-bottom: 18px;
+        }
+
+        .input-box label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 6px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            background: #f5f5f5;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #ff6ea8;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff4f95;
+        }
+
+        .register-link {
+            margin-top: 18px;
+            font-size: 14px;
+        }
+
+        .register-link a {
+            color: #ff287c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <form class="login-container" method="POST" action="">
+        {% csrf_token %}
+        <h2>Welcome Back</h2>
+
+        <div class="input-box">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Enter username">
+        </div>
+
+        <div class="input-box">
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Enter password">
+        </div>
+
+        <button type="submit">Login</button>
+
+        <p class="register-link">Don't have an account?  
+            <a href="{% url 'register' %}">Register</a>
+        </p>
+    </form>
+
+</body>
+</html>
+
+{% endblock content %}
