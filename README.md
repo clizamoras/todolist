@@ -39,32 +39,20 @@ This project was created to practice building a complete web application with **
 
 ## 📂 Project Structure
 
-```text
-todo/
-│
-├── base/
-│   ├── migrations/
-│   ├── templates/
-│   │   └── base/
-│   │       ├── logins.html
-│   │       ├── register.html
-│   │       ├── main.html
-│   │       ├── task.html
-│   │       ├── task_form.html
-│   │       ├── task_list.html
-│   │       └── taskdelete.html
-│   │
-│   ├── models.py
-│   ├── views.py
-│   ├── urls.py
-│   └── admin.py
-│
-├── todo/
-│   ├── settings.py
-│   ├── urls.py
-│   ├── asgi.py
-│   └── wsgi.py
-│
-├── manage.py
-├── requirements.txt
-└── README.md
+- **`base/`** — Main Django application containing models, views, templates, URLs, and migrations.
+- **`todo/`** — Django project configuration and settings.
+- **`manage.py`** — Used to manage the Django project and run commands.
+- **`requirements.txt`** — Contains the Python packages required for the project.
+- **`README.md`** — Documentation and information about the project.
+
+---
+
+## ⚙️ Getting Started
+
+Follow these steps to run the project locally.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/clizamoras/todolist.git
+cd todolist
