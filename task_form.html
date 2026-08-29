@@ -1,0 +1,51 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    .form-container {
+        background: #ffffffcc;
+        backdrop-filter: blur(5px);
+        padding: 30px;
+        width: 350px;
+        border-radius: 18px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        animation: fadeIn 0.6s ease-in-out;
+        margin: 40px auto;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    h2 { margin-top: 0; font-weight: 600; text-align: center; color: #333; }
+    label { display: block; font-weight: 500; margin-top: 10px; color: #444; }
+    input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 10px; font-size: 15px; outline: none; background: #fff; box-sizing: border-box; }
+    input:focus, textarea:focus { border-color: #ff7c94; box-shadow: 0 0 6px rgba(255,124,148,0.4); }
+    button { width: 100%; padding: 12px; margin-top: 18px; border: none; border-radius: 10px; font-size: 16px; background: #ff6a88; color: white; font-weight: 600; cursor: pointer; }
+    button:hover { background: #ff3366; transform: translateY(-2px); }
+    .add { color: #ff6a88; display:block; margin-bottom:8px; }
+    .errors { background:#ffe6e9; padding:8px; border-radius:8px; color:#b00020; margin-bottom:12px; }
+    .checkbox-row{display:flex;align-items:center;gap:10px;margin-top:8px}
+    .checkbox-row input[type=checkbox]{width:18px;height:18px;margin:0;transform:scale(1.02)}
+    </style>
+
+    <div class="form-container">
+        <h2>Add Task</h2>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <a class="add" href="{% url 'tasklist' %}">Back To Tasks</a>
+
+            <label>Task Title</label>
+            <input type="text" name="title">
+
+            <label>Description</label>
+            <input type="text" name="description">
+
+            <div class="checkbox-row">
+                <input type="checkbox" id="id_complete" name="complete">
+                <label for="id_complete" style="margin:0;">Complete</label>
+            </div>
+
+            <button type="submit">Update Task</button>
+        </form>
+    </div>
+
+{% endblock %}
